@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/css/output.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+    <script defer src="src/components/main_components_classes.js"></script>
+    <script defer src="src/components/symbols.js"></script>
+    <script defer src="src/components/page_description.js"></script>
+    <script defer type="module" src="src/components/button.js"></script>
+    <script defer type="module" src="src/components/side_panel.js"></script>
+    <script defer type="module" src="src/components/header.js"></script>
+    <script defer type="module" src="src/components/popups.js"></script>
+    <script defer type="module" src="src/components/spinner.js"></script>
+    <script defer type="module" src="src/js/ui_controller.js"></script>
+    <title>Main Page</title>
+</head>
+<body>
+    <side-panel open></side-panel>
+    <confirmation-popup open></confirmation-popup>
+    <loading-spinner class="hidden"></loading-spinner>
+    <header-app></header-app>
+    <main>
+        <nav-button id="create_docs">
+            Criar Documentos para teste
+        </nav-button>
+        <a id="download_documents" hx-get="select_company.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
+            <nav-button>
+                Baixar Documentos
+            </nav-button>
+        </a>
+        <a id="PODs" hx-get="select_company.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
+            <nav-button >
+                Comprovantes de Entrega
+            </nav-button>
+        </a>
+        <a hx-get="maps.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
+            <nav-button>
+                Mapa
+            </nav-button>
+        </a>
+        <yellow-button class="grow self-center content-end m-10">
+            <p class="p-2">Iniciar<br>Viagem</p>
+        </yellow-button>             
+        <script type="module">
+            import { store } from './src/store/index.js';
+            import { downloadDocuments, PODs } from './src/store/actions.js';
+            import { getCompanies } from './src/api/api.js';
+            import { createTenDocs } from './src/api/api.js'; // DELETE createTenDocs!!!
+
+            const test = document.querySelector('#create_docs'); // DELETE THIS LINE!!!
+            test.addEventListener('click', async function() { // DELETE THIS LINE!!!
+                createTenDocs(); // DELETE THIS LINE!!!
+            }); // DELETE THIS LINE!!!
+
+            document.querySelector('#download_documents').addEventListener('click', async function() {
+                await store.dispatch(downloadDocuments(await getCompanies()))
+            })
+
+            document.querySelector('#PODs').addEventListener('click', async function() {
+                await store.dispatch(PODs(await getCompanies()))
+            })
+
+            console.log(store.getState());
+        </script>
+    </main>
+</body>
+</html>

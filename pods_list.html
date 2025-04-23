@@ -1,0 +1,19 @@
+<page-description>Comprovantes de Entrega (1)</page-description>
+<div id="search-bar" class="flex items-center mt-8">
+    <input type="text" class="mr-2 my-4 p-1 self-stretch rounded-md shadow-md shadow-gray-500 grow" placeholder="Buscar Empresa">
+    <search-button></search-button>
+</div>
+<a hx-get="messages.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
+    <doc-button id="some-number" class="details-panel-open">
+        <span slot="title-slot">NF-e 432/1</span>
+        <span slot="description-slot">
+            <div class="h-full w-full flex flex-col items-start">
+                <p class="pb-4 text-xs self-center">Entregue em 10/05/2024 às 18:12</p>
+                <p class="pt-4 pl-8 text-sm">Destinatário</p>
+                <p class="text-lg pl-6">Empresa Destino 1</p>
+                <p class="pt-4 pl-8 text-sm">Emissor</p>
+                <p class="text-lg pl-6">Empresa Emissor 1</p>
+            </div>
+        </span> 
+    </doc-button>       
+</a>

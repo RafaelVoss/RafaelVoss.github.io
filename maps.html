@@ -1,0 +1,9 @@
+<iframe class="h-full w-full rounded-3xl" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29254.18821372225!2d-46.638694400000006!3d-23.576576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1718919471477!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<script type="module">
+    import { store } from './src/store/index.js';
+    import { map } from './src/store/actions.js';
+
+    document.dispatchEvent(new CustomEvent('contentLoaded'));
+    store.dispatch(map());
+</script>
