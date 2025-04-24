@@ -9,13 +9,13 @@ export const DisplayDocumentsToDeliver = (id) => {
     let shipmentsSearchText = getShipmentsSearchText(state);
     let isShipmentsSearchBarSelected = getIsShipmentsSearchBarSelected(state);
     document.querySelector("main #search-bar").innerHTML = `
-        <input type="text" class="mr-2 my-4 p-1 self-stretch rounded-md shadow-md shadow-gray-500 grow" placeholder="Pesquisar">
+        <input type="text" class="mr-2 my-4 p-1 self-stretch rounded-md shadow-md shadow-gray-500 grow" placeholder="Search">
         <search-button></search-button>
     `;
     if (shipments.length === 0) {
         const html = `
         <div id="no-docs">
-            <h1>Não há documentos para entregar</h1>
+            <h1>There are no shipments to deliver.</h1>
         </div>`;
         document.querySelector("main div#docs-container").innerHTML = html;
     } else {
@@ -25,7 +25,7 @@ export const DisplayDocumentsToDeliver = (id) => {
                 <doc-button>
                     <span slot="title-slot">${shipment.destination.name}</span>
                     <span slot="description-slot"> 
-                        Entrega
+                        Destination address:
                         <address>
                             ${shipment.destination.address}
                         </address>

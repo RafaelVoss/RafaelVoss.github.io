@@ -30,16 +30,16 @@ export const popupAskingToLogOut = () => {
     return ({
         visible: true,
         wasVisible: false,
-        content: 'Deseja realmente sair?',
+        content: 'Do You really want to leave?',
         buttons: {
             greenBTN: {
                 visible: true,
-                text: 'Ficar',
+                text: 'Stay',
                 action: closeConfirmationPopup
             },
             redBTN: {
                 visible: true,
-                text: 'Sair',
+                text: 'Leave',
                 action: logOutAction
             },
             redderBTN: {
@@ -53,16 +53,16 @@ export const popupAskingToLogOut = () => {
 export const arrivalPopupState = {
     visible: true,
     wasVisible: false,
-    content: 'Confirmar chegada?',
+    content: 'Confirm Arival?',
     buttons: {
         greenBTN: {
             visible: true,
-            text: 'Confirmar',
+            text: 'Confirm',
             action: confirmArrivalAction
         },
         redBTN: {
             visible: true,
-            text: 'Cancelar',
+            text: 'Cancel',
             action: closeConfirmationPopup
         },
         redderBTN: {
@@ -76,16 +76,16 @@ export const arrivalPopupState = {
 export const deliveryPopupState = (index) => ({
     visible: true,
     wasVisible: false,
-    content: 'Confirmar Entrega?',
+    content: 'Confirm Delivery?',
     buttons: {
         greenBTN: {
             visible: true,
-            text: 'Confirmar',
+            text: 'Confirm',
             action: () => confirmDeliveryAction(index)
         },
         redBTN: {
             visible: true,
-            text: 'Cancelar',
+            text: 'Cancel',
             action: closeConfirmationPopup
         },
         redderBTN: {
@@ -99,7 +99,7 @@ export const deliveryPopupState = (index) => ({
 export const issuePopupState = (index) => ({
     visible: true,
     wasVisible: false,
-    content: 'Confirmar Ocorrência?',
+    content: 'Confirm Issue?',
     buttons: {
         greenBTN: {
             visible: false,
@@ -108,12 +108,12 @@ export const issuePopupState = (index) => ({
         },
         redBTN: {
             visible: true,
-            text: 'Cancelar',
+            text: 'Cancel',
             action: closeConfirmationPopup
         },
         redderBTN: {
             visible: true,
-            text: 'Confirmar',
+            text: 'Confirm',
             action: () => confirmIssueAction(index)
         }
     },
@@ -126,17 +126,17 @@ export const displayPopupWithFileState = (html, type, index) => ({
     buttons: {
         greenBTN: {
             visible: true,
-            text: 'Fechar',
+            text: 'Close',
             action: closeConfirmationPopup
         },
         redBTN: {
             visible: true,
-            text: 'Excluir',
+            text: 'Delete',
             action: () => removeFileAction(type, index)
         },
         redderBTN: {
             visible: false,
-            text: 'Confirmar',
+            text: '',
             action: null
         }
     },
@@ -145,21 +145,21 @@ export const displayPopupWithFileState = (html, type, index) => ({
 export const popupContentAskingForPOD = (index) => ({
     visible: true,
     wasVisible: false,
-    content: "Adicionar Comprovantes de Entrega?",
+    content: "Add Proof of Delivery?",
     buttons: {
         greenBTN: {
             visible: true,
-            text: 'Adicionar',
+            text: 'Add',
             action: () => addPODAction(index)
         },
         redBTN: {
             visible: true,
-            text: 'Fechar',
+            text: 'Close',
             action: closeConfirmationPopup
         },
         redderBTN: {
             visible: false,
-            text: 'Confirmar',
+            text: '',
             action: null
         }
     },
@@ -168,21 +168,21 @@ export const popupContentAskingForPOD = (index) => ({
 export const popupWarningPODWasSent = (doc) => ({
     visible: true,
     wasVisible: false,
-    content: `Comprovante de Entrega ${doc === "cte" ? "desse CTe" : "dessa NFe"} já foi enviado!`,
+    content: `Proof of Delivery ${doc === "cte" ? "of this CTe" : "of this NFe"} has already been sent!`,
     buttons: {
         greenBTN: {
             visible: false,
-            text: 'Adicionar',
+            text: '',
             action: null
         },
         redBTN: {
             visible: true,
-            text: 'Fechar',
+            text: 'Close',
             action: closeConfirmationPopup
         },
         redderBTN: {
             visible: false,
-            text: 'Confirmar',
+            text: '',
             action: null
         }
     },
@@ -191,21 +191,21 @@ export const popupWarningPODWasSent = (doc) => ({
 export const sendPODPopupState = (content) => ({
     visible: true,
     wasVisible: false,
-    content: "Enviar Comprovante?",
+    content: "Send Message?",
     buttons: {
         greenBTN: {
             visible: true,
-            text: 'Enviar',
+            text: 'Send',
             action: () => sendPODAction(content)
         },
         redBTN: {
             visible: true,
-            text: 'Fechar',
+            text: 'Close',
             action: closeConfirmationPopup
         },
         redderBTN: {
             visible: false,
-            text: 'Confirmar',
+            text: '',
             action: null
         }
     },

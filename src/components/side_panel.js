@@ -17,20 +17,20 @@ class SidePanel extends HTMLElement {
             </header>
             <a id="homeBTN">
                 <nav-button class="side-panel-close">
-                    Início
+                    Home
                 </nav-button>
             </a>
             <a id="editUserBTN" hx-get="edit_user.html" hx-trigger="click" hx-target="global main" hx-swap="innerHTML">
                 <nav-button class="side-panel-close">
-                    Editar Perfil
+                    Edit User
                 </nav-button>
             </a>
             <a id="changePasswordBTN" hx-get="change_password.html" hx-trigger="click" hx-target="global main" hx-swap="innerHTML">
                 <nav-button class="side-panel-close">
-                    Mudar Senha
+                    Change Password
                 </nav-button>
             </a>
-            <p class="grow text-xs text-center pt-4">© 2024 Arellano Voss Logistica Ltda.<br>Todos os direitos reservados</p>
+            <p class="grow text-xs text-center pt-4">© 2025 Arellano Voss Logistica Ltda.<br>All rights reserved.</p>
             <a href="login.html" class="flex flex-col">
                 <red-button class="self-center mb-10">
                     <p class="my-4 mx-8">Sair</p>

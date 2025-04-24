@@ -10,7 +10,7 @@ export const DisplayMessages = () => {
     let html = `
     <div class="flex items-start h-24">
         <div class="w-full p-2 flex flex-col border-y-2 border-slate-800">
-            <h2 class="self-center">Ocorrência</h2>
+            ${doc.status === "delivered" ? '<h2 class="self-center">Delivery</h2>' : '<h2 class="self-center">Issue</h2>'}
             <h3 class="self-center">${doc.description} ${doc.number}</h3>
         </div>
     </div>`;
@@ -26,7 +26,7 @@ export const DisplayMessages = () => {
         </div>
     </div>
     <div id="messages_input" class="flex flex-row pt-6 pb-4 h-18 items-center">
-        <textarea type="text" class=" h-9 mr-2 p-1 self-stretch rounded-md shadow-md shadow-gray-500 grow" placeholder="Comentário"></textarea>
+        <textarea type="text" class=" h-9 mr-2 p-1 self-stretch rounded-md shadow-md shadow-gray-500 grow" placeholder="Comment"></textarea>
         <button class="flex items-center">
             <send-button class="p-1"></send-button>
         </button>

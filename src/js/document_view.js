@@ -21,14 +21,14 @@ function setDocHeader(shipment, docView) {
     <div id="summary" class="border-b-2 border-black">
         <h3 class="text-2xl mb-4 text-center">${shipment.destination.name}</h3>
         <p>
-            Entrega
+            Destination address:
         </p>
         <div class="flex flex-row w-full justify-between items-center">
             <address class="py-10">
                 ${shipment.destination.address}
             </address>
             <yellow-button id="arrivalBTN" class="mr-10">
-                Chegada
+                Arrival
             </yellow-button>
         </div>
         <div class="justify-center text-xs pb-2 hidden" id="delivery-date-section">
@@ -46,7 +46,7 @@ function setDocHeader(shipment, docView) {
     if (shipment.status && shipment.status === 'arrived') {
         // const today = new Date(Date.now());
         docView.querySelector("#arrivalBTN").classList.toggle("hidden");
-        docView.querySelector("#delivery-date-text").innerHTML = "Chegada em " + FormatedDateFromDate(shipment.time) + " às " + FormatedTimeFromDate(shipment.time);
+        docView.querySelector("#delivery-date-text").innerHTML = "Arrived on " + FormatedDateFromDate(shipment.time) + " at " + FormatedTimeFromDate(shipment.time);
         docView.querySelector("#delivery-date-section").classList.toggle("hidden");
         docView.querySelector("#delivery-date-section").classList.toggle("flex");
     }
@@ -73,30 +73,30 @@ function setDocBody(shipment, docView) {
                 ${shipment.status && shipment.status === 'arrived' && !shipment.cte.status ? 
                 `
                 <td class="w-5/12 text-center">
-                    <green-button>Entrega</green-button>
+                    <green-button>Deliver</green-button>
                 </td>
                 <td class="w-5/12 text-center">
-                    <red-button>Ocorrência</red-button>
+                    <red-button>Issue</red-button>
                 </td>
                 `
                     : 
                 ''}
                 ${shipment.cte.status === 'delivered' ? 
                 `<td class='w-8/12 text-center flex flex-col justify-center'>
-                    <green-button>Entrega Ok</green-button>
+                    <green-button>Delivery Ok</green-button>
                     <div class='text-xs'>
                         <check-circle></check-circle>
-                        <span class='italic pt-4'>Entregue em ${FormatedDateFromDate(shipment.cte.time)} às ${FormatedTimeFromDate(shipment.cte.time)}</span>
+                        <span class='italic pt-4'>Delivered on ${FormatedDateFromDate(shipment.cte.time)} at ${FormatedTimeFromDate(shipment.cte.time)}</span>
                     </div>
                 </td>`
                 : 
                 shipment.cte.status === 'has an issue' ? 
                 `
                 <td class='w-8/12 text-center flex flex-col justify-center'>
-                    <redder-button>Ocorrência</redder-button>
+                    <redder-button>Issue</redder-button>
                     <div class='text-xs'>
                         <warn-triangle></warn-triangle>
-                        <span class='italic pt-4'>Ocorrência em ${FormatedDateFromDate(shipment.cte.time)} às ${FormatedTimeFromDate(shipment.cte.time)}</span>
+                        <span class='italic pt-4'>Problem occurred on ${FormatedDateFromDate(shipment.cte.time)} at ${FormatedTimeFromDate(shipment.cte.time)}</span>
                     </div>
                 </td>
                 `
@@ -147,30 +147,30 @@ function setDocBody(shipment, docView) {
                 ${shipment.status && shipment.status === 'arrived' && !nfe.status ? 
                 `
                 <td class="w-5/12 text-center">
-                    <green-button>Entrega</green-button>
+                    <green-button>Deliver</green-button>
                 </td>
                 <td class="w-5/12 text-center">
-                    <red-button>Ocorrência</red-button>
+                    <red-button>Issue</red-button>
                 </td>
                 `
                     :
                 ''} 
                 ${nfe.status === 'delivered' ? 
                 `<td class='w-8/12 text-center flex flex-col justify-center'>
-                    <green-button>Entrega Ok</green-button>
+                    <green-button>Delivery Ok</green-button>
                     <div class='text-xs'>
                         <check-circle></check-circle>
-                        <span class='italic pt-4'>Entregue em ${FormatedDateFromDate(nfe.time)} às ${FormatedTimeFromDate(nfe.time)}</span>
+                        <span class='italic pt-4'>Delivered on ${FormatedDateFromDate(nfe.time)} at ${FormatedTimeFromDate(nfe.time)}</span>
                     </div>
                 </td>`
                     : 
                 nfe.status === 'has an issue' ? 
                 `
                 <td class='w-8/12 text-center flex flex-col justify-center'>
-                    <redder-button>Ocorrência</redder-button>
+                    <redder-button>Issue</redder-button>
                     <div class='text-xs'>
                         <warn-triangle></warn-triangle>
-                        <span class='italic pt-4'>Ocorrência em ${FormatedDateFromDate(nfe.time)} às ${FormatedTimeFromDate(nfe.time)}</span>
+                        <span class='italic pt-4'>Problem occurred on ${FormatedDateFromDate(nfe.time)} at ${FormatedTimeFromDate(nfe.time)}</span>
                     </div>
                 </td>
                 `
@@ -221,7 +221,7 @@ function FormatedDateFromDate(date) {
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
-    return day + "/" + month + "/" + year;
+    return month + "/" + day + "/" + year;
 }
 
 function FormatedTimeFromDate(date) {

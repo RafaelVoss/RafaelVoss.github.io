@@ -5,34 +5,26 @@ import { createTenDocs } from '../api/api.js'; // DELETE createTenDocs!!!
 
 export const DisplayMainPage = async () => {
     let html =`
-    <nav-button id="create_docs">
-        Criar Documentos para teste
-    </nav-button>
     <a id="download_documents" hx-get="select_company.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
         <nav-button>
-            Baixar Documentos
+            Download Documents
         </nav-button>
     </a>
     <a id="PODs" hx-get="select_company.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
         <nav-button >
-            Comprovantes de Entrega
+            Proof of Delivery
         </nav-button>
     </a>
     <a hx-get="maps.html" hx-trigger="click" hx-target="main" hx-swap="innerHTML">
         <nav-button>
-            Mapa
+            Maps
         </nav-button>
     </a>
     <yellow-button class="grow self-center content-end m-10">
-        <p class="p-2">Iniciar<br>Viagem</p>
+        <p class="p-2">Start<br>Travel</p>
     </yellow-button>
         `
     document.querySelector("main").innerHTML = html;
-
-    const test = document.querySelector('#create_docs'); // DELETE THIS LINE!!!
-    test.addEventListener('click', async function() { // DELETE THIS LINE!!!
-        createTenDocs(); // DELETE THIS LINE!!!
-     }); // DELETE THIS LINE!!!
 
     document.querySelector('#download_documents').addEventListener('click', async function() {
         store.dispatch(downloadDocuments(await getCompanies()))
