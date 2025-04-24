@@ -31,9 +31,9 @@ class SidePanel extends HTMLElement {
                 </nav-button>
             </a>
             <p class="grow text-xs text-center pt-4">© 2025 Arellano Voss Logistica Ltda.<br>All rights reserved.</p>
-            <a href="login.html" class="flex flex-col">
+            <a href="index.html" class="flex flex-col">
                 <red-button class="self-center mb-10">
-                    <p class="my-4 mx-8">Sair</p>
+                    <p class="my-4 mx-8">Leave</p>
                 </red-button>
             </a>
         </div>
