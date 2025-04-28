@@ -133,6 +133,34 @@ class ButtonNav extends HTMLElement {
   
   customElements.define('nav-button', ButtonNav);
 
+  class ButtonBack extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.shadowRoot.innerHTML = `
+        <link href="/src/css/output.css" rel="stylesheet">
+        <button class="
+          w-full
+          h-1/2
+          my-2
+          py-4 
+          rounded-full
+          text-stone-800 
+          font-semibold
+          bg-slate-500 
+          shadow-md 
+          shadow-gray-600 
+          cursor-pointer
+          hover:bg-slate-600
+        ">
+          <slot></slot>
+        </button>
+      `;
+    }
+  } 
+  
+  customElements.define('back-button', ButtonBack);
+
   class ButtonDoc extends HTMLElement {
     constructor() {
       super();

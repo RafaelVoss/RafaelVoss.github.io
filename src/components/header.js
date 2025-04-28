@@ -11,10 +11,15 @@ class Header extends HTMLElement {
             <div class="flex justify-center items-center w-2/12">
                 <hamburger-button class="side-panel-open" type="button"/>
             </div>
+            <div></div><div></div>
             <div>
-                <img src="/src/assets/logo.png" class="h-16" id="header-logo" alt="Transpro logo">
+                <img id="header-logo" src="/src/assets/logo.png" class="h-16" alt="Transpro logo">
             </div>
-            <div class="w-2/12"></div>
+            <div></div>
+            <div class="w-2/12 flex justify-center items-center">
+                <back-button id="back-button" class="flex justify-center items-center w-9/12">Back</back-button>
+            </div>
+            <div></div>
         </header>
         `;
     }
@@ -27,6 +32,6 @@ document.querySelector('header-app').shadowRoot.querySelector('.side-panel-open'
     document.querySelector("side-panel").setAttribute("open", "true");
 });
 
-document.querySelector('header-app').shadowRoot.querySelector('#header-logo').addEventListener('click', () => {
+document.querySelector('header-app').shadowRoot.querySelector('#back-button').addEventListener('click', () => {
     store.dispatch(navigateBackAction());
 })
