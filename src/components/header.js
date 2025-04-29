@@ -8,15 +8,15 @@ class Header extends HTMLElement {
       this.shadowRoot.innerHTML = `
         <link href="/src/css/output.css" rel="stylesheet">
         <header class="flex flex-row w-screen justify-between pt-8 pb-4">
-            <div class="flex justify-center items-center w-2/12">
+            <div class="flex justify-center items-center w-3/12 pr-4">
                 <hamburger-button class="side-panel-open" type="button"/>
             </div>
-            <div></div><div></div>
+            <div></div>
             <div>
                 <img id="header-logo" src="/src/assets/logo.png" class="h-16" alt="Transpro logo">
             </div>
             <div></div>
-            <div class="w-2/12 flex justify-center items-center">
+            <div class="w-3/12 flex justify-center items-center">
                 <back-button id="back-button" class="flex justify-center items-center w-9/12">Back</back-button>
             </div>
             <div></div>

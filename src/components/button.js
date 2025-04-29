@@ -141,9 +141,9 @@ class ButtonNav extends HTMLElement {
         <link href="/src/css/output.css" rel="stylesheet">
         <button class="
           w-full
-          h-1/2
           my-2
           py-4 
+          mx-2
           rounded-full
           text-stone-800 
           font-semibold
