@@ -37,7 +37,7 @@ async function reducer(state, action) {
             break;
         case 'LOGOUT':
             state = initialState;
-            window.location.href = "login.html";
+            window.location.href = "index.html";
             break;
         case 'NAVIGATE_BACK':
             manageUserSelection(state, lastPage);
